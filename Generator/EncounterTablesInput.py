@@ -2,7 +2,7 @@ import xml.etree.ElementTree as ElementTree
 class EncounterTablesInput(object):
     """docstring for EncounterTablesInput."""
 
-    def __init__(self, FileName:String):
+    def __init__(self, filename:String):
         super(EncounterTablesInput, self).__init__()
-        self.FileName = FileName
-        self.EncounterTables = ElementTree.parse(FileName)
+        self.filename = filename
+        self.encountertables = ElementTree.parse(filename)
