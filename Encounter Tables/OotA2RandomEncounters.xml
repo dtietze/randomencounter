@@ -1,0 +1,57 @@
+<Set>
+  <Table>
+    <Name>RandomEncounters</Name>
+    <Dice>20</Dice>
+    <Encounter>
+      <Name>No Encounter</Name>
+      <StartNumber>1</StartNumber>
+      <EndNumber>13</EndNumber>
+      <Description></Description>
+      <Next></Next>
+    </Encounter>
+    <Encounter>
+      <Name>Terrain Encounter</Name>
+      <StartNumber>14</StartNumber>
+      <EndNumber>15</EndNumber>
+      <Description>The Underdark contains dangerous hazards and wondrous terrain. Special terrain rules are explained after the table.</Description>
+      <Next>TerrainEncounters</Next>
+    </Encounter>
+    <Encounter>
+      <Name>Creature Encounter</Name>
+      <StartNumber>16</StartNumber>
+      <EndNumber>17</EndNumber>
+      <Description>Keep the party's level in mind when fleshing out these encounters, and allow the characters to retreat from or avoid an encounter that is too great a challenge. Escape should come at a cost, however. Characters fleeing their camp to avoid a creature encounter might be forced to abandon food and water supplies, for example.</Description>
+      <Next>CreatureEncoutners</Next>
+    </Encounter>
+    <Encounter>
+      <Name>Terrain and Creature Encounter</Name>
+      <StartNumber>16</StartNumber>
+      <EndNumber>17</EndNumber>
+      <Description>Keep the party's level in mind when fleshing out these encounters, and allow the characters to retreat from or avoid an encounter that is too great a challenge. Escape should come at a cost, however. Characters fleeing their camp to avoid a creature encounter might be forced to abandon food and water supplies, for example.</Description>
+      <Next>TerrainEncoutners</Next>
+      <Next>CreatureEncoutners</Next>
+    </Encounter>
+  </Table>
+  <Table>
+    <Name>TerrainEncounters</Name>
+    <Dice>20</Dice>
+    <Encounter>
+      <Name>TerrainPlaceHolder</Name>
+      <StartNumber>1</StartNumber>
+      <EndNumber>20</EndNumber>
+      <Description>TerrainPlaceHolder</Description>
+      <Next></Next>
+    </Encounter>
+  </Table>
+  <Table>
+    <Name>CreatureEncounters</Name>
+    <Dice>20</Dice>
+    <Encounter>
+      <Name>CreaturePlaceHolder</Name>
+      <StartNumber>1</StartNumber>
+      <EndNumber>20</EndNumber>
+      <Description>CreaturePlaceHolder</Description>
+      <Next></Next>
+    </Encounter>
+  </Table>
+</Set>
