@@ -1,8 +1,23 @@
 import xml.etree.ElementTree as ElementTree
 class EncounterTablesInput(object):
-    """docstring for EncounterTablesInput."""
+    """
+    Inputs the encounter tables as an element tree
+
+    ...
+
+    Attributes
+    ----------
+    encountertables : elementtee
+        Elment tree of all encounter tables
+
+    """
 
     def __init__(self, filename:String):
+        """
+        Parameters
+        ----------
+        filename : string
+            specifies file to be parsed
+        """
         super(EncounterTablesInput, self).__init__()
-        self.filename = filename
         self.encountertables = ElementTree.parse(filename)

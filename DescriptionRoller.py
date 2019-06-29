@@ -41,7 +41,7 @@ class DescriptionRoller(object):
 
     def rollDescription()
         """
-            randomizes a number based on the roller's dice
+            randomizes a number based on the rollers dice
 
             Returns
             -------
