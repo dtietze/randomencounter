@@ -1,3 +1,4 @@
+import Roller
 class DescriptionRoller(object):
     """
     a class used to hold an encounter description
@@ -7,7 +8,7 @@ class DescriptionRoller(object):
     Attributes
     ----------
     descriptionlist : list
-        a list containing the description, with rollable parts separated.
+        Contains the description, with rollable parts separated. Pattern goes {..., rollable, nonrollable, rollable, ...}
     toroll : list
         contains Rollers for all rollable portions
     rollnumbers: list
@@ -31,31 +32,30 @@ class DescriptionRoller(object):
         self.toroll = list()
         self.rollnumbers = list()
         k = 0
-        while k < len(descriptionlist)
-            if descriptionlist[k][1].isdigit()
+        while k < len(descriptionlist):
+            if descriptionlist[k][1].isdigit():
                 nd = tuple(descriptionlist[k].split(d))
-                toroll.append((ComputeRoll(nd))
+                toroll.append((Roller(nd))
                 rollnumbers.append(k)
             k = k + 1
 
-
-    def rollDescription()
+    def rollDescription(self):
         """
-            randomizes a number based on the rollers dice
+        outputs a fully rolled encounter description.
 
-            Returns
-            -------
-            total : int
-                the total of the rolls
+        Returns
+        -------
+        total : int
+            the total of the rolls
         """
         i = 0
         j = 0
-        outstring = ""string()""
-        while i <= len(descriptionlist)
-            if i in rollnumbers
-                outstring = outstring + roll(toroll[j])
+        outstring = string()
+        while i <= len(descriptionlist):
+            if i in rollnumbers:
+                outstring = outstring + toroll[j].roll()
                 j = j + 1
-            else
-                outstring += descriptionlist[i]
+            else:
+                outstring = outstring + descriptionlist[i]
             i = i + 1
         return outstring

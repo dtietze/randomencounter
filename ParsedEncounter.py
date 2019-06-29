@@ -1,3 +1,4 @@
+import DescriptionRoller
 import xml.etree.ElementTree as ElementTree
 class ParsedEncounter(object):
     """
@@ -17,10 +18,6 @@ class ParsedEncounter(object):
         description of encounter
     next : list
         list of next encounters
-    Methods
-    -------
-    rollDescription()
-        Recreates a description with roller input.
     """
     def __init__(self, treein:ElementTree):
         """
@@ -33,5 +30,5 @@ class ParsedEncounter(object):
         self.name = Input.get(Name)
         self.startnumber = Input.get(StartNumber)
         self.endnumber = Input.get(EndNumber)
-        self.description = Input.get(Description)
+        self.description = DescriptionRoller(Input.get(Description))
         self.next = Input.get(Next)
