@@ -1,7 +1,7 @@
 <Set>
   <Table>
-    <Name>RandomEncounters</Name>
-    <Dice>20</Dice>
+    <Name>StartHere</Name>
+    <Dice>1d20</Dice>
     <Encounter>
       <Name>No Encounter</Name>
       <StartNumber>1</StartNumber>

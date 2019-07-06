@@ -1,5 +1,6 @@
+import DescriptionRoller
 import xml.etree.ElementTree as ElementTree
-class ParsedTable(object):
+class Encounter(object):
     """
     a class used to hold an encounter as its pieces
 
@@ -17,7 +18,6 @@ class ParsedTable(object):
         description of encounter
     next : list
         list of next encounters
-
     """
     def __init__(self, treein:ElementTree):
         """
@@ -26,7 +26,9 @@ class ParsedTable(object):
         treein : elementtree
             tree contianing pieces which will be portioned out
         """
-        super(ParsedTable, self).__init__()
-        self.parsedencounters = set()
-        for child in self.treein
-            ParsedEncouters.add(ParsedEncounter(child))
+        super(Encounter, self).__init__()
+        self.name = Input.get(Name)
+        self.startnumber = Input.get(StartNumber)
+        self.endnumber = Input.get(EndNumber)
+        self.description = DescriptionRoller(Input.get(Description))
+        self.next = Input.get(Next)

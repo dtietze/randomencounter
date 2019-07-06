@@ -1,6 +1,4 @@
-import DescriptionRoller
-import xml.etree.ElementTree as ElementTree
-class ParsedEncounter(object):
+class EncounterTable(object):
     """
     a class used to hold an encounter as its pieces
 
@@ -26,9 +24,16 @@ class ParsedEncounter(object):
         treein : elementtree
             tree contianing pieces which will be portioned out
         """
-        super(ParsedEncounter, self).__init__()
+        super(EncounterTable, self).__init__()
         self.name = Input.get(Name)
-        self.startnumber = Input.get(StartNumber)
-        self.endnumber = Input.get(EndNumber)
+        self.dice = Roller.stringtoroller(treein.get(Dice))
         self.description = DescriptionRoller(Input.get(Description))
-        self.next = Input.get(Next)
+        self.encounterlist = list()
+        for child in treein:
+            encounterlist.add(Encounter(child))
+
+    def getname(self):
+        return self.name
+
+    def generateencounter(self):
+        

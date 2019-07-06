@@ -44,3 +44,14 @@ class Roller(object):
             total = total + random.randint(1,self.d)
             i = i + 1
         return total
+
+def stringtoroller(self, stringroller):
+    """
+    Creates a roller based on a string
+
+    Returns
+    ---------------
+    newroller: Roller
+    """
+    return Roller(tuple(stringroller.split(d)))
+    

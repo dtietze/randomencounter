@@ -1,5 +1,5 @@
 import Roller
-class DescriptionRoller(object):
+class Description(object):
     """
     a class used to hold an encounter description
 
@@ -20,33 +20,32 @@ class DescriptionRoller(object):
         Recreates a description with roller input.
     """
 
-    def __init__(self, description):
+    def __init__(self, descriptionstring):
         """
         Parameters
         ----------
         description : string
             full description as a string, with rollable sections denoted by @xdy@
         """
-        super(DescriptionRoller, self).__init__()
-        self.descriptionlist = description.split(@)
+        super(Description, self).__init__()
+        self.descriptionlist = descriptionstring.split(@)
         self.toroll = list()
         self.rollnumbers = list()
         k = 0
         while k < len(descriptionlist):
-            if descriptionlist[k][1].isdigit():
-                nd = tuple(descriptionlist[k].split(d))
-                toroll.append((Roller(nd))
+            if (descriptionlist[k][1].isdigit()):
+                toroll.append((Roller.stringtoroller(self, descriptionlist[k])))
                 rollnumbers.append(k)
             k = k + 1
 
-    def rollDescription(self):
+    def rolldescription(self):
         """
         outputs a fully rolled encounter description.
 
         Returns
         -------
-        total : int
-            the total of the rolls
+        outstring : string
+            the string with a combination of the words and rolls
         """
         i = 0
         j = 0
