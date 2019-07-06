@@ -27,8 +27,17 @@ class Encounter(object):
             tree contianing pieces which will be portioned out
         """
         super(Encounter, self).__init__()
-        self.name = Input.get(Name)
-        self.startnumber = Input.get(StartNumber)
-        self.endnumber = Input.get(EndNumber)
-        self.description = DescriptionRoller(Input.get(Description))
-        self.next = Input.get(Next)
+        self.name = treein.get(Name)
+        self.numbers = list()
+        i = treein.get(StartNumber)
+        while i <= treein.get(EndNumber):
+            numbers.add(i)
+            i = i + 1
+        self.description = Description(treein.get(Description))
+        self.next = treein.get(Next)
+
+    def getnext(self):
+        return self.next
+
+    def getdescription(self):
+        return self.description.rolldescription()

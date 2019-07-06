@@ -36,4 +36,13 @@ class EncounterTable(object):
         return self.name
 
     def generateencounter(self):
-        
+        thisroll = dice.roll()
+        expectedlist = list()
+        expectedstring = ""
+        for element in self.encounterlist:
+            if thisroll in element:
+                expected.append(element.getdescription())
+                expectedstring = expectedstring + element.getnext()
+                if expectedstring != "":
+                    expectedlist.append(expectedstring)
+        return expectedlist
