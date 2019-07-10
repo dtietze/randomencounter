@@ -1,3 +1,8 @@
+from Encounter import Encounter as Encounter
+from Description import Description as Description
+from Roller import Roller as Roller
+from Roller import stringtoroller as stringtoroller
+import xml.etree.ElementTree as ElementTree
 class EncounterTable(object):
     """
     a class used to hold an encounter as its pieces
@@ -17,7 +22,7 @@ class EncounterTable(object):
     next : list
         list of next encounters
     """
-    def __init__(self, treein:ElementTree):
+    def __init__(self, treein):
         """
         Parameters
         ----------
@@ -25,24 +30,26 @@ class EncounterTable(object):
             tree contianing pieces which will be portioned out
         """
         super(EncounterTable, self).__init__()
-        self.name = Input.get(Name)
-        self.dice = Roller.stringtoroller(treein.get(Dice))
-        self.description = DescriptionRoller(Input.get(Description))
+        self.name = treein.get("name")
+        self.dice = Roller(tuple(treein.get("dice").split('d')))
+        self.description = Description(treein.get("Description"))
         self.encounterlist = list()
         for child in treein:
-            encounterlist.add(Encounter(child))
+            self.encounterlist.append(Encounter(child))
 
     def getname(self):
         return self.name
 
     def generateencounter(self):
-        thisroll = dice.roll()
+        thisroll = self.dice.roll()
+        expecteddescription = ""
         expectedlist = list()
         expectedstring = ""
         for element in self.encounterlist:
-            if thisroll in element:
-                expected.append(element.getdescription())
-                expectedstring = expectedstring + element.getnext()
-                if expectedstring != "":
-                    expectedlist.append(expectedstring)
+            if thisroll in element.getnumbers():
+                expecteddescription = expecteddescription + element.getdescription()
+                expectedstring = expectedstring + str(element.getnext())
+        expectedlist.append(expecteddescription)
+        if expectedstring != "":
+            expectedlist.append(expectedstring)
         return expectedlist

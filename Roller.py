@@ -26,8 +26,8 @@ class Roller(object):
             represents (number of dice, size of dice)
         """
         super(Roller, self).__init__()
-        self.n = nd[0]
-        self.d = nd[1]
+        self.n = int(nd[0])
+        self.d = int(nd[1])
 
     def roll(self):
         """
@@ -53,5 +53,4 @@ def stringtoroller(self, stringroller):
     ---------------
     newroller: Roller
     """
-    return Roller(tuple(stringroller.split(d)))
-    
+    return Roller(tuple(stringroller.split('d')))

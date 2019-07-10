@@ -28,14 +28,14 @@ class Description(object):
             full description as a string, with rollable sections denoted by @xdy@
         """
         super(Description, self).__init__()
-        self.descriptionlist = descriptionstring.split(@)
+        self.descriptionlist = str(descriptionstring).split("@")
         self.toroll = list()
         self.rollnumbers = list()
         k = 0
-        while k < len(descriptionlist):
-            if (descriptionlist[k][1].isdigit()):
-                toroll.append((Roller.stringtoroller(self, descriptionlist[k])))
-                rollnumbers.append(k)
+        while k < len(self.descriptionlist):
+            if (self.descriptionlist[k][0].isdigit()):
+                self.toroll.append((Roller.stringtoroller(self, self.descriptionlist[k])))
+                self.rollnumbers.append(k)
             k = k + 1
 
     def rolldescription(self):
@@ -49,12 +49,12 @@ class Description(object):
         """
         i = 0
         j = 0
-        outstring = string()
-        while i <= len(descriptionlist):
-            if i in rollnumbers:
-                outstring = outstring + toroll[j].roll()
+        outstring = ""
+        while i < len(self.descriptionlist):
+            if i in self.rollnumbers:
+                outstring = outstring + self.toroll[j].roll()
                 j = j + 1
             else:
-                outstring = outstring + descriptionlist[i]
+                outstring = outstring + self.descriptionlist[i]
             i = i + 1
         return outstring

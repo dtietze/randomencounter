@@ -1,6 +1,7 @@
-import xml.etree.ElementTree as ElementTree
-from Encounter import Encounter
+from queue import Queue as Queue
+from EncounterTable import EncounterTable
 from Roller import Roller
+import xml.etree.ElementTree as ElementTree
 class TableSet(object):
     """
     a class used to hold an encounter as its pieces
@@ -21,7 +22,7 @@ class TableSet(object):
         list of next encounters
 
     """
-    def __init__(self, treein:ElementTree):
+    def __init__(self, treein):
         """
         Parameters
         ----------
@@ -30,26 +31,31 @@ class TableSet(object):
         """
         super(TableSet, self).__init__()
         self.tableslist = list()
-        self.start = EncounterTable(treein.find("[@Name=StartHere]"))
         for child in treein:
-            tableslist.add(EncounterTable(child))
+            #Testing for child.get
+            self.tableslist.append(EncounterTable(child))
+        for thing in self.tableslist:
+            if thing.getname() == "StartHere":
+                self.start = thing
 
-
-    def makeencounter():
+    def makeencounter(self):
         """
         Creates an encounter based on existing encoutners and a roller
         """
-        nextqueue = Queue.queue()
+        nextqueue = Queue()
         expected = list()
         encounterstring = ""
         nextname = ""
-        nextqueue.add(self.start)
-        while !nextqueue.empty():
-            nextname = nextqueue.get()
+        nextqueue.put(self.start)
+        nextqueue.put(self.start)
+        while nextqueue.empty() == False:
+            nextname = nextqueue.get().getname()
             for table in self.tableslist:
                 if table.getname() == nextname:
                     expected = table.generateencounter()
-            if expected.length() > 1:
-                nextqueue.put(expected[1])
+            if len(expected) > 1:
+                for table in self.tableslist:
+                    if table.getname() == expected[1]:
+                        nextqueue.put(table)
             encounterstring = encounterstring + expected[0]
         return encounterstring

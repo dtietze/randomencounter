@@ -1,4 +1,4 @@
-import DescriptionRoller
+from Description import Description as Description
 import xml.etree.ElementTree as ElementTree
 class Encounter(object):
     """
@@ -27,17 +27,21 @@ class Encounter(object):
             tree contianing pieces which will be portioned out
         """
         super(Encounter, self).__init__()
-        self.name = treein.get(Name)
+        self.name = treein.get("name")
         self.numbers = list()
-        i = treein.get(StartNumber)
-        while i <= treein.get(EndNumber):
-            numbers.add(i)
+        i = int(treein.get("startnumber"))
+        j = int(treein.get("endnumber"))
+        while i <= j:
+            self.numbers.append(i)
             i = i + 1
-        self.description = Description(treein.get(Description))
-        self.next = treein.get(Next)
+        self.description = Description(treein.get("description"))
+        self.next = treein.get("next").split(",")
 
     def getnext(self):
         return self.next
 
     def getdescription(self):
         return self.description.rolldescription()
+
+    def getnumbers(self):
+        return self.numbers
