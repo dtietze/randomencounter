@@ -49,9 +49,7 @@ class EncounterTable(object):
             if thisroll in element.getnumbers():
                 expecteddescription = expecteddescription + element.getdescription()
                 expectednext = element.getnext()
-                print ("EncounterTable 52: " + str(element.getnext()))
         expectedlist.append(expecteddescription)
         if len(expectednext) > 0:
             expectedlist.append(expectednext)
-        print ("EncounterTable 55: " + str(expectedlist))
         return expectedlist

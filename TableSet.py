@@ -32,7 +32,6 @@ class TableSet(object):
         super(TableSet, self).__init__()
         self.tableslist = list()
         for child in treein:
-            #Testing for child.get
             self.tableslist.append(EncounterTable(child))
         for thing in self.tableslist:
             if thing.getname() == "StartHere":
@@ -48,20 +47,16 @@ class TableSet(object):
         nextname = ""
         nextqueue.put(self.start)
         while nextqueue.empty() == False:
-            print (nextqueue.queue[0].getname())
             nextname = nextqueue.get().getname()
             for table in self.tableslist:
                 if table.getname() == nextname:
                     expected = table.generateencounter()
-                    print ("TableSet 55: " + str(expected))
             if len(expected) > 1:
                 for table in self.tableslist:
                     i = 0
                     while i < len(expected[1]):
-                        print ("TableSet 61: " + str(expected[1][i]))
                         if table.getname() == expected[1][i]:
-                            print ("TableSet 63 True")
                             nextqueue.put(table)
                         i = i + 1
-            encounterstring = encounterstring + expected[0]
+            encounterstring = encounterstring + expected[0] + "\n"
         return encounterstring
