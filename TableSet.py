@@ -47,15 +47,21 @@ class TableSet(object):
         encounterstring = ""
         nextname = ""
         nextqueue.put(self.start)
-        nextqueue.put(self.start)
         while nextqueue.empty() == False:
+            print (nextqueue.queue[0].getname())
             nextname = nextqueue.get().getname()
             for table in self.tableslist:
                 if table.getname() == nextname:
                     expected = table.generateencounter()
+                    print ("TableSet 55: " + str(expected))
             if len(expected) > 1:
                 for table in self.tableslist:
-                    if table.getname() == expected[1]:
-                        nextqueue.put(table)
+                    i = 0
+                    while i < len(expected[1]):
+                        print ("TableSet 61: " + str(expected[1][i]))
+                        if table.getname() == expected[1][i]:
+                            print ("TableSet 63 True")
+                            nextqueue.put(table)
+                        i = i + 1
             encounterstring = encounterstring + expected[0]
         return encounterstring

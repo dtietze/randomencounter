@@ -5,7 +5,7 @@
     </encounter>
     <encounter name="Terrain Encounter" startnumber="14" endnumber="15" description="The Underdark contains dangerous hazards and wondrous terrain. Special terrain rules are explained after the table." next="Terrain Encounters">
     </encounter>
-    <encounter name="Creature Encounter" startnumber="16" endnumber="17" description="Keep the party's level in mind when fleshing out these encounters, and allow the characters to retreat from or avoid an encounter that is too great a challenge. Escape should come at a cost, however. Characters fleeing their camp to avoid a creature encounter might be forced to abandon food and water supplies, for example." next="CreatureEncoutners">
+    <encounter name="Creature Encounter" startnumber="16" endnumber="17" description="Keep the party's level in mind when fleshing out these encounters, and allow the characters to retreat from or avoid an encounter that is too great a challenge. Escape should come at a cost, however. Characters fleeing their camp to avoid a creature encounter might be forced to abandon food and water supplies, for example." next="Creature Encounters">
     </encounter>
     <encounter name="Terrain and Creature Encounter" startnumber="18" endnumber="20" description="Keep the party's level in mind when fleshing out these encounters, and allow the characters to retreat from or avoid an encounter that is too great a challenge. Escape should come at a cost, however. Characters fleeing their camp to avoid a creature encounter might be forced to abandon food and water supplies, for example." next="Terrain Encounters,Creature Encounters">
     </encounter>
@@ -217,7 +217,7 @@
     </encounter>
   </table>
   <table name="Scouts" dice="1d3">
-    <encounter name="1 drow" startnumber="1" endnumber="3" description="1 drow" next="">
+    <encounter name="One drow" startnumber="1" endnumber="3" description="1 drow" next="">
     </encounter>
     <encounter name="1d4 myconid adults" startnumber="4" endnumber="6" description="@1d4@ myconid adults" next="">
     </encounter>

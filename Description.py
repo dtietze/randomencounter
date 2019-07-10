@@ -1,4 +1,5 @@
 import Roller
+import re
 class Description(object):
     """
     a class used to hold an encounter description
@@ -28,14 +29,16 @@ class Description(object):
             full description as a string, with rollable sections denoted by @xdy@
         """
         super(Description, self).__init__()
+        pattern = re.compile("\d*d\d*")
         self.descriptionlist = str(descriptionstring).split("@")
         self.toroll = list()
         self.rollnumbers = list()
         k = 0
         while k < len(self.descriptionlist):
-            if (self.descriptionlist[k][0].isdigit()):
-                self.toroll.append((Roller.stringtoroller(self, self.descriptionlist[k])))
-                self.rollnumbers.append(k)
+            if (self.descriptionlist[k]):
+                if (re.fullmatch(pattern,self.descriptionlist[k])):
+                    self.toroll.append((Roller.stringtoroller(self, self.descriptionlist[k])))
+                    self.rollnumbers.append(k)
             k = k + 1
 
     def rolldescription(self):
@@ -52,7 +55,7 @@ class Description(object):
         outstring = ""
         while i < len(self.descriptionlist):
             if i in self.rollnumbers:
-                outstring = outstring + self.toroll[j].roll()
+                outstring = outstring + str(self.toroll[j].roll())
                 j = j + 1
             else:
                 outstring = outstring + self.descriptionlist[i]

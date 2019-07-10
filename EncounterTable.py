@@ -44,12 +44,14 @@ class EncounterTable(object):
         thisroll = self.dice.roll()
         expecteddescription = ""
         expectedlist = list()
-        expectedstring = ""
+        expectednext = list()
         for element in self.encounterlist:
             if thisroll in element.getnumbers():
                 expecteddescription = expecteddescription + element.getdescription()
-                expectedstring = expectedstring + str(element.getnext())
+                expectednext = element.getnext()
+                print ("EncounterTable 52: " + str(element.getnext()))
         expectedlist.append(expecteddescription)
-        if expectedstring != "":
-            expectedlist.append(expectedstring)
+        if len(expectednext) > 0:
+            expectedlist.append(expectednext)
+        print ("EncounterTable 55: " + str(expectedlist))
         return expectedlist
