@@ -8,7 +8,7 @@ class EncounterGeneratorGUI(object):
     def __init__(self, master):
         super(EncounterGeneratorGUI, self).__init__()
         self.win = master
-        self.tree = ElementTree.parse('OotA2RandomEncounters.xml')
+        self.tree = ElementTree.parse(input("Enter filename: "))
         self.root = self.tree.getroot()
         self.outstring = ""
         self.readytable = TableSet(self.root)
