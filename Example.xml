@@ -1,0 +1,17 @@
+<?xml version="1.0"?>
+<set>
+  <table name="StartHere" dice="1d4">
+    <encounter name="First Encounter" startnumber="1" endnumber="1" description="1/4 chance" next="">
+    </encounter>
+    <encounter name="Second Encounter" startnumber="2" endnumber="2" description="1/4 chance" next="">
+    </encounter>
+    <encounter name="Third Encounter" startnumber="3" endnumber="4" description="2/4 chance" next="Second Table">
+    </encounter>
+  </table>
+  <table name="Second Table" dice="1d2">
+    <encounter name="First of Second" startnumber="1" endnumber="1" description="Rolls @1d4@ for you" next="">
+    </encounter>
+    <encounter name="Second of Second" startnumber="2" endnumber="2" description="Other option" next="">
+    </encounter>
+  </table>
+</set>
