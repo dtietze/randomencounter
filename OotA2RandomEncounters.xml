@@ -143,13 +143,13 @@
     </encounter>
   </table>
   <table name="Escaped Slaves" dice="1d4">
-    <encounter name="1d2 moon elf commoners" startnumber="1" endnumber="2" description="@1d2@ moon elf commoners are friendly; if given food and water they'll join the party. " next="">
+    <encounter name="1d2 moon elf commoners" startnumber="1" endnumber="1" description="@1d2@ moon elf commoners are friendly; if given food and water they'll join the party. " next="">
     </encounter>
-    <encounter name="1d3 shield dwarf commoners" startnumber="3" endnumber="5" description="@1d3@ shield dwarf commoners are friendly; if given food and water they'll join the party. " next="">
+    <encounter name="1d3 shield dwarf commoners" startnumber="2" endnumber="2" description="@1d3@ shield dwarf commoners are friendly; if given food and water they'll join the party. " next="">
     </encounter>
-    <encounter name="1d4 human commoners" startnumber="3" endnumber="5" description="@1d4@ human commoners are friendly; if given food and water they'll join the party. " next="">
+    <encounter name="1d4 human commoners" startnumber="3" endnumber="3" description="@1d4@ human commoners are friendly; if given food and water they'll join the party. " next="">
     </encounter>
-    <encounter name="1d6 goblins" startnumber="3" endnumber="5" description="@1d6@ goblins are hostile and likely to attack." next="">
+    <encounter name="1d6 goblins" startnumber="4" endnumber="4" description="@1d6@ goblins are hostile and likely to attack." next="">
     </encounter>
   </table>
   <table name="Fungi" dice="1d3">
